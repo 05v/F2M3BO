@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+}
+
+header {
+    background-color: black;
+    color: white;
+    width: auto;
+    height: auto;
+    padding: 2rem;
+}
+
+header>p {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+}
+
+.div {
+    display: grid;
+    font-size: 2rem;
+}
+
+.div {
+    border: 0.2rem solid black;
+    border-width: auto;
+    width: auto;
+    padding: 1rem 3rem;
+    /* T R B L or TB & LR*/
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.zon_tijd {
+    height: 15rem;
+}
+
+.temp_tijdstip {
+    height: 25rem;
+    width: 25rem;
+    margin-right: 2rem;
+}
+
+.kosten_maand {
+    height: 25rem;
+    width: 25rem;
+    margin-left: 2rem;
+}
+
+#temp_kosten {
+    display: flex;
+    justify-content: center;
+}
+
+#dashboard {
+    display: flex;
+    justify-content: center;
+}
+
+.ul_datum>li {
+    font-size: 2rem;
+    list-style: none;
+}
+
+.ul_zon>li {
+    font-size: 2rem;
+    list-style: none;
+}
+
+.ul_kosten>li {
+    font-size: 2rem;
+    list-style: none;
+}

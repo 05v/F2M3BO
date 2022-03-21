@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboard van vlad en matthijs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script/script.js" defer></script>
+    <title>Energie Dashboard</title>
 </head>
+
+<header>
+    <p>Energie Bewust Dashboard</p>
+</header>
+
 <body>
-    
+    <section id="dashboard">
+        <div id="left">
+            <div class="div">21 Maart 2022 09:30</div>
+            <div class="div zon_tijd">
+                <ul class="ul_zon">
+                    <li>07:00 Uur - Zon Opkomst</li>
+                    <li>18:41 Uur - Zon Ondergang</li>
+                </ul>
+            </div>
+            <div class="div lokaal_temp">Lokaal 0.92 Temp. 0°C</div>
+        </div>
+
+        <div id="right">
+            <div id="temp_kosten">
+                <div class="div temp_tijdstip">
+                    <ul class="ul_datum">
+                        <li>Maandag</li>
+                        <li>08:00 - 0°C </li>
+                        <li>12:00 - 0°C </li>
+                        <li>16:00 - 0°C </li>
+                        <li>20:00 - 0°C </li>
+                        <li>24:00 - 0°C</li>
+                    </ul>
+
+                </div>
+                <div class="div kosten_maand">
+                    <ul class="ul_kosten">
+                        <li>Kosten Februari:</li>
+                        <li>€22 - Gas</li>
+                        <li>€36 - Elektriciteit</li>
+                        <li>€300 - Water</li>
+                        <li>Totale Kosten: €358,00-</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="div lokaal_lichtsterkte">Lokaal 0.92 Lichtsterkte: 500 lux</div>
+        </div>
+    </section>
 </body>
+
 </html>
