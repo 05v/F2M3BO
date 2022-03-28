@@ -25,16 +25,13 @@ body {
 }
 
 .div {
-    display: grid;
-    font-size: 2rem;
-}
-
-.div {
     border: 0.2rem solid black;
     border-width: auto;
     width: auto;
     padding: 1rem 3rem;
     /* T R B L or TB & LR*/
+    display: grid;
+    font-size: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 2rem;
@@ -42,19 +39,17 @@ body {
 }
 
 .zon_tijd {
-    height: 15rem;
+    height: auto;
 }
 
 .temp_tijdstip {
-    height: 25rem;
-    width: 25rem;
-    margin-right: 2rem;
+    height: auto;
+    width: auto;
 }
 
 .kosten_maand {
-    height: 25rem;
-    width: 25rem;
-    margin-left: 2rem;
+    height: auto;
+    width: auto;
 }
 
 #temp_kosten {
