@@ -1,4 +1,5 @@
 "# F2M3BO" 
+<<<<<<< HEAD
 # Vlad Verheij
 # Matthijs Jurriaans
 # Klas SD1A
@@ -17,3 +18,7 @@ Onderdelen in categorie 2 (SD studenten)
 5)Een grafische weergave van de opbrengst van de zonnepanelen de afgelopen weken(indien zonnepanelen thuis aanwezig zijn of gegevens worden door de docent verstrekt)
 
 6)Verzin zelf welke gegevens je via een grafische weergave op jullie dashboard zichtbaar wil maken.
+=======
+
+link naar dashboard: http://32825.hosts1.ma-cloud.nl/dashboard/
+>>>>>>> bb8202496321a5291e3b136813cba90106841325
