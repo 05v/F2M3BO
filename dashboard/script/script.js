@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use strict"
 const timeDelay = 10000; // time delay refresh data
 let refreshTimer = window.setInterval(renderData, timeDelay); // timer data opvragen van server
@@ -23,21 +22,17 @@ async function renderData() {
     let measurement = measurementRaw.data[0];
     console.log(measurement);
 
-    // Nieuwe Javascript date maken met de de datum en tijd van de meting
-    let datum = new Date(measurement.datum);
-
     // De meting gegevens wegschrijven naar de div                
-    dataDiv.innerText = `${measurement.value3}`;
+    dataDiv.innerText = `Lokaal 0.92 Lichtsterkte: ${measurement.value3} Lux`;
 }
 
 renderData(); // start immediately
-=======
+
 var today = new Date();
 var day = today.getDay();
-var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+' '+time;
- 
+var dateTime = date + ' ' + time;
+
 document.getElementById("displayDateTime").innerHTML = dateTime + ' <br> Day : ' + daylist[day];
->>>>>>> fb168ac8b56c58060e485a8a6fa330e20715e330
