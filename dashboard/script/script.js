@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use strict"
 const timeDelay = 10000; // time delay refresh data
 let refreshTimer = window.setInterval(renderData, timeDelay); // timer data opvragen van server
@@ -30,3 +31,13 @@ async function renderData() {
 }
 
 renderData(); // start immediately
+=======
+var today = new Date();
+var day = today.getDay();
+var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"];
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+ 
+document.getElementById("displayDateTime").innerHTML = dateTime + ' <br> Day : ' + daylist[day];
+>>>>>>> fb168ac8b56c58060e485a8a6fa330e20715e330
