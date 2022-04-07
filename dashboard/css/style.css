@@ -24,10 +24,21 @@ body {
     margin: 0;
 }
 
+.left{
+    height: 100%;
+    width: 50%;
+}
+
+.right{
+    height: 100%;
+    width: 50%;
+}
+
 .div {
     border: 0.2rem solid black;
     border-width: auto;
-    width: auto;
+    width: 100%;
+    height: 100%;
     padding: 1rem 3rem;
     /* T R B L or TB & LR*/
     display: grid;
@@ -60,17 +71,17 @@ body {
 }
 
 .zon_tijd {
-    height: auto;
+    height: 100%;
 }
 
 .temp_tijdstip {
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .kosten_maand {
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
 }
 
 #temp_kosten {
