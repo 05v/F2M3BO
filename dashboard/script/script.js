@@ -46,6 +46,38 @@ function updateTime() {
         hr = dateInfo.getHours();
     }
 
+    const ctx = document.getElementById('mychart2').getContext("2d");
+
+    const labels = [
+        '6:00',
+        '8:00',
+        '10:00',
+        '12:00',
+        '14:00',
+        '16:00',
+        '18:00',
+    ];
+
+    const data = {
+        labels,
+        datasets: [{
+            data: [10, 11, 15, 20, 22, 19, 15],
+            label: "dababy",
+        }]
+    };
+
+    const config = {
+        type: "line",
+        data: data,
+        options: {
+            responsive: true,
+        },
+    };
+
+    const mychart2 = new Chart(ctx, config);
+
+    
+    
     var currentTime = hr + ":" + _min + ":" + sec;
 
     // print time
