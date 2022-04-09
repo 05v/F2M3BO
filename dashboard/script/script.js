@@ -26,64 +26,81 @@ async function renderData() {
     dataDiv.innerText = `Lokaal 0.92 Lichtsterkte: ${measurement.value3} Lux`;
 }
 
+// Date and time
+
 function updateTime() {
     var dateInfo = new Date();
-  
+
     /* time */
     var hr,
-      _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
-      sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
-      ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
-  
+        _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
+        sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+        ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
+
     // replace 0 with 12 at midnight, subtract 12 from hour if 13–23
     if (dateInfo.getHours() == 0) {
-      hr = 12;
+        hr = 12;
     } else if (dateInfo.getHours() > 12) {
-      hr = dateInfo.getHours() - 12;
+        hr = dateInfo.getHours() - 12;
     } else {
-      hr = dateInfo.getHours();
+        hr = dateInfo.getHours();
     }
-  
+
     var currentTime = hr + ":" + _min + ":" + sec;
-  
+
     // print time
     document.getElementsByClassName("hms")[0].innerHTML = currentTime;
     document.getElementsByClassName("ampm")[0].innerHTML = ampm;
-  
+
     /* date */
     var dow = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      month = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      day = dateInfo.getDate();
-  
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        month = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        day = dateInfo.getDate();
+
     // store date
     var currentDate = dow[dateInfo.getDay()] + ", " + month[dateInfo.getMonth()] + " " + day;
-  
+
     document.getElementsByClassName("date")[0].innerHTML = currentDate;
-  };
-  
-  // print time and date once, then update them every second
-  updateTime();
-  setInterval(function() {
+};
+
+// print time and date once, then update them every second
+updateTime();
+setInterval(function() {
     updateTime()
-  }, 1000);
+}, 1000);
+
+const apiZonOp_Onder = "";
+
+const zon_op = document.getElementById("js--zon--op"); // hier komt de data
+const zon_ond = document.getElementById("js--zon--onder"); // hier komt de data
+console.log(zon_op)
+
+let zonapifetch = fetch("https://api.sunrise-sunset.org/json?lat=52.370216&lng=4.895168&date=today")
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(realData) {
+        zon_op.innerText = realData.results.sunrise + "- Zon Opkomst";
+        zon_ond.innerText = realData.results.sunset + "- Zon Ondergang";
+    });
