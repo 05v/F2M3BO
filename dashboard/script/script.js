@@ -48,6 +48,12 @@ function updateTime() {
 
     const ctx = document.getElementById('mychart2').getContext("2d");
 
+
+    let gradient = ctx.createLinearGradient(0, 0, 0, 400)
+    gradient.addColorStop(0, 'rgba(58,123,213,1');
+    gradient.addColorStop(1, 'rgba(0,210,255, 0.3)');
+
+
     const labels = [
         '6:00',
         '8:00',
@@ -62,7 +68,9 @@ function updateTime() {
         labels,
         datasets: [{
             data: [10, 11, 15, 20, 22, 19, 15],
-            label: "dababy",
+            label: "graden celcius",
+            fill: true,
+            backgroundColor: gradient,
         }]
     };
 
@@ -71,6 +79,15 @@ function updateTime() {
         data: data,
         options: {
             responsive: true,
+            scales: {
+                y: {
+                    ticks : {
+                        callback: function (value){
+                            return "$" + value +"m";
+                        },
+                    },
+                },
+            },
         },
     };
 
