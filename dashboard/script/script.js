@@ -46,7 +46,7 @@ function updateTime() {
         hr = dateInfo.getHours();
     }
 
-    const ctx = document.getElementById('mychart2').getContext("2d");
+    const ctx = document.getElementById('temp_tijdstip').getContext("2d");
 
 
     let gradient = ctx.createLinearGradient(0, 0, 0, 400)
@@ -83,7 +83,7 @@ function updateTime() {
                 y: {
                     ticks : {
                         callback: function (value){
-                            return "$" + value +"m";
+                            return value +"°C";
                         },
                     },
                 },
@@ -91,8 +91,50 @@ function updateTime() {
         },
     };
 
-    const mychart2 = new Chart(ctx, config);
+    const temp_tijdstip = new Chart(ctx, config);
 
+    const ctx2 = document.getElementById('lokaal_temp').getContext("2d");
+
+
+    let gradient2 = ctx2.createLinearGradient(0, 0, 0, 400)
+    gradient2.addColorStop(0, 'rgba(56,123,213,1');
+    gradient2.addColorStop(1, 'rgba(0,210,255, 0.3)');
+
+
+    const labels2 = [
+        "0,91",
+        "0,92",
+        "0,93",
+    ];
+
+    const data2 = {
+        labels2,
+        datasets: [{
+            data: [15, 16, 15],
+            label: "graden celcius",
+            fill: true,
+            backgroundColor: gradient2,
+        }]
+    };
+
+    const config2 = {
+        type: "bar",
+        data: data2,
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    ticks : {
+                        callback: function (value2){
+                            return value2 +"°C";
+                        },
+                    },
+                },
+            },
+        },
+    };
+
+    const lokaal_temp = new Chart(ctx2, config2);
     
     
     var currentTime = hr + ":" + _min + ":" + sec;

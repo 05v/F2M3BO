@@ -63,12 +63,18 @@ body {
 }
 
 .zon_tijd {
-    height: auto;
+    height: 6vw;
+    width: 20vw;
 }
 
 .temp_tijdstip {
     height: 25vw;
     width: 44vw;
+}
+
+#lokaal_temp {
+    width: 14vw;
+    height: 100vw;
 }
 
 .kosten_maand {
