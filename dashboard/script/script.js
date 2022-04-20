@@ -26,6 +26,27 @@ async function renderData() {
     dataDiv.innerText = `Lokaal 0.92 Lichtsterkte: ${measurement.value3} Lux`;
 }
 
+const dataDiv2 = document.getElementById("dataDiv2"); // hier komt de data
+
+async function getSensorData() {
+    let url = mijnDataURL;
+    try {
+        let response = await fetch(url);
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function renderData() {
+    let measurementRaw = await getSensorData();
+    let measurement = measurementRaw.data[0];
+    console.log(measurement);
+
+    // De meting gegevens wegschrijven naar de div                
+    dataDiv2.innerText = `temperatuur lokaal 0.92: ${measurement.value1} °C`;
+}
+
 // Date and time
 
 function updateTime() {
@@ -45,96 +66,6 @@ function updateTime() {
     } else {
         hr = dateInfo.getHours();
     }
-
-    const ctx = document.getElementById('temp_tijdstip').getContext("2d");
-
-
-    let gradient = ctx.createLinearGradient(0, 0, 0, 400)
-    gradient.addColorStop(0, 'rgba(58,123,213,1');
-    gradient.addColorStop(1, 'rgba(0,210,255, 0.3)');
-
-
-    const labels = [
-        '6:00',
-        '8:00',
-        '10:00',
-        '12:00',
-        '14:00',
-        '16:00',
-        '18:00',
-    ];
-
-    const data = {
-        labels,
-        datasets: [{
-            data: [10, 11, 15, 20, 22, 19, 15],
-            label: "graden celcius",
-            fill: true,
-            backgroundColor: gradient,
-        }]
-    };
-
-    const config = {
-        type: "line",
-        data: data,
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    ticks : {
-                        callback: function (value){
-                            return value +"°C";
-                        },
-                    },
-                },
-            },
-        },
-    };
-
-    const temp_tijdstip = new Chart(ctx, config);
-
-    const ctx2 = document.getElementById('lokaal_temp').getContext("2d");
-
-
-    let gradient2 = ctx2.createLinearGradient(0, 0, 0, 400)
-    gradient2.addColorStop(0, 'rgba(56,123,213,1');
-    gradient2.addColorStop(1, 'rgba(0,210,255, 0.3)');
-
-
-    const labels2 = [
-        "0,91",
-        "0,92",
-        "0,93",
-    ];
-
-    const data2 = {
-        labels2,
-        datasets: [{
-            data: [15, 16, 15],
-            label: "graden celcius",
-            fill: true,
-            backgroundColor: gradient2,
-        }]
-    };
-
-    const config2 = {
-        type: "bar",
-        data: data2,
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    ticks : {
-                        callback: function (value2){
-                            return value2 +"°C";
-                        },
-                    },
-                },
-            },
-        },
-    };
-
-    const lokaal_temp = new Chart(ctx2, config2);
     
     
     var currentTime = hr + ":" + _min + ":" + sec;
@@ -195,3 +126,52 @@ let zonapifetch = fetch("https://api.sunrise-sunset.org/json?lat=52.370216&lng=4
         zon_op.innerText = realData.results.sunrise + "- Zon Opkomst";
         zon_ond.innerText = realData.results.sunset + "- Zon Ondergang";
     });
+
+    const  ctx = document.getElementById('temp_tijdstip').getContext("2d");
+
+
+    let gradient = ctx.createLinearGradient(0, 0, 0, 400)
+    gradient.addColorStop(0, 'rgba(58,123,213,1');
+    gradient.addColorStop(1, 'rgba(0,210,255, 0.3)');
+
+
+    const labels2 = [
+        '6:00',
+        '8:00',
+        '10:00',
+        '12:00',
+        '14:00',
+        '16:00',
+        '18:00',
+    ];
+
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            data: [10, 11, 15, 20, 22, 19, 15],
+            label: "graden celcius",
+            fill: true,
+            backgroundColor: gradient,
+        }]
+    };
+
+    const config2 = {
+        type: "line",
+        data: data2,
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    ticks : {
+                        callback: function (value){
+                            return value +"°C";
+                        },
+                    },
+                },
+            },
+        },
+    };
+
+    const temp_tijdstip = new Chart(ctx, config2);
+
+    console.log(temp_tijdstip)
